@@ -1,111 +1,138 @@
 # 🪔 Diwali Sales Analysis
 
-**A data analytics case study identifying the customer segments that drive Diwali-season retail sales, using Python for data cleaning, exploratory analysis, and visualization.**
+**Exploratory data analysis of 11,000+ festive-season transactions to uncover who buys, what they buy, and where the revenue comes from.**
 
-## 📌 Business Problem
+---
 
-A retail business ran a Diwali sales campaign and collected 11,000+ customer transactions but had no clear picture of **who its customers actually are** or **what drives revenue**. This project analyzes that raw transaction data to answer three questions a business stakeholder would ask:
+## 📌 Overview
 
-1. Which customer demographics generate the most revenue?
-2. Which regions and product categories should marketing and inventory prioritize?
-3. Who is the ideal customer profile to target in future campaigns?
+Retailers running a festive sale need to answer three practical questions fast: **who is buying, what are they buying, and where should inventory go next?**
+
+This project analyzes a retail dataset of **11,251 Diwali-season transactions** across 16 Indian states to answer exactly that. Using Python, the raw data is cleaned, explored, and visualized to surface actionable patterns in customer demographics and product performance — the kind of insight a business team could use to plan inventory, target marketing, and improve customer experience for the next sales cycle.
+
+---
+
+## 🎯 Business Questions Answered
+
+- Which gender and age group drives the most purchases and revenue?
+- Which states generate the highest order volume and sales value?
+- Does marital status influence spending behavior?
+- Which occupations are most represented among high-spending customers?
+- Which product categories and individual products sell the most?
+
+---
+
+## 🗂️ Dataset
+
+| Detail | Value |
+|---|---|
+| Source file | `Diwali_Sales_Data.csv` |
+| Raw records | 11,251 rows × 15 columns |
+| Records after cleaning | 11,239 rows × 13 columns |
+| Fields | Customer ID, Name, Gender, Age, Age Group, Marital Status, State, Zone, Occupation, Product Category, Product ID, Orders, Amount |
+| Total revenue analyzed | ₹10.62+ crore (₹106,249,129) across 27,981 orders |
+
+---
+
+## 🛠️ Tools & Libraries
+
+- **Python** — core analysis
+- **Pandas / NumPy** — data cleaning, transformation, aggregation
+- **Matplotlib / Seaborn** — statistical visualization
+- **Jupyter Notebook** — end-to-end, reproducible workflow
+
+---
+
+## 🔍 Project Workflow
+
+### 1. Data Cleaning
+- Handled encoding issues on import (`unicode_escape`)
+- Dropped fully empty/irrelevant columns (`Status`, `unnamed1`)
+- Removed rows with missing values
+- Corrected data types (e.g., cast `Amount` to integer for accurate aggregation)
+
+### 2. Exploratory Data Analysis
+Segmented the cleaned data across five lenses to build a complete customer and product profile:
+- **Gender** — purchase count and total spend
+- **Age Group** — purchase count and total spend, split by gender
+- **State** — order volume and revenue by top-performing states
+- **Marital Status** — spending patterns by marital status and gender
+- **Occupation & Product Category** — where the money is coming from, and where it's going
+
+---
+
+## 📊 Key Insights
+
+- **Gender drives the majority of both purchases and revenue.** Female customers placed the majority of orders (7,832 vs. 3,407) and also accounted for the higher share of total revenue — a clear signal for where marketing and merchandising should be weighted.
+
+- **26–35 age group is the core customer base.** This age band placed the most orders and generated the highest revenue of any group (~₹4.25 crore), making it the primary segment to design promotions around.
+
+- **Sales are concentrated in a handful of states.** Uttar Pradesh, Maharashtra, and Karnataka led both order volume and revenue by a wide margin — useful for regional inventory and logistics planning.
+
+- **Women lead spending across both marital groups.** Whether married or unmarried, female customers outspent male customers in every marital-status segment — reinforcing gender as the strongest spending signal in the dataset, ahead of marital status.
+
+- **IT, Healthcare, and Aviation professionals spend the most.** These three occupations generated the highest cumulative revenue, indicating where higher-value customers are concentrated.
+
+- **Food, Clothing, and Electronics dominate revenue.** These three categories are the clear top performers, well ahead of the remaining 15 categories — the first place to prioritize stock for the next sale.
+
+- **A small set of SKUs drives disproportionate order volume.** The top 10 products by order count highlight exactly which SKUs to keep well-stocked heading into the next festive cycle.
+
+---
+
+## 💡 Recommendations
+
+- **Prioritize female customers, especially aged 26–35**, in campaign targeting and personalized offers — they are both the most frequent and highest-spending segment.
+- **Concentrate inventory and logistics investment** in Uttar Pradesh, Maharashtra, and Karnataka, which together account for a disproportionate share of revenue.
+- **Stock up early on Food, Clothing & Apparel, and Electronics** ahead of the next festive season, since these three categories consistently outsell the rest.
+- **Design occupation-aware offers** (e.g. for IT, Healthcare, and Aviation professionals) who show higher purchasing power.
+
+---
 
 ## 🧠 Skills Demonstrated
 
-- **Data Cleaning** — handling nulls, dropping irrelevant fields, fixing data types
-- **Exploratory Data Analysis (EDA)** — segmenting data across demographics, geography, and product lines
-- **Data Visualization** — communicating patterns clearly with Seaborn/Matplotlib charts
-- **Business Insight Generation** — translating raw numbers into an actionable customer profile and recommendation
-- **Python for Data Analysis** — Pandas for data manipulation, NumPy for computation
+- Data cleaning and preprocessing (handling nulls, encoding issues, type correction)
+- Exploratory Data Analysis (EDA) using Pandas
+- Data visualization and storytelling with Matplotlib and Seaborn
+- Translating raw transactional data into business-relevant, decision-ready insights
+- End-to-end analysis workflow in a single reproducible Jupyter Notebook
 
-## 📂 Dataset
-
-The dataset (`Diwali Sales Data.csv`) contains **11,251 transaction records** across **15 columns**, including:
-
-| Column | Description |
-|---|---|
-| `User_ID` | Unique customer identifier |
-| `Cust_name` | Customer name |
-| `Product_ID` | Unique product identifier |
-| `Gender` | Customer gender |
-| `Age Group` / `Age` | Customer age bracket and exact age |
-| `Marital_Status` | 0 = Unmarried, 1 = Married |
-| `State` / `Zone` | Customer's location |
-| `Occupation` | Customer's profession |
-| `Product_Category` | Category of the purchased product |
-| `Orders` | Number of orders placed |
-| `Amount` | Transaction value (₹) |
-
-## 🛠️ Tech Stack
-
-- **Python 3**
-- **Pandas** — data cleaning and manipulation
-- **NumPy** — numerical operations
-- **Matplotlib** & **Seaborn** — data visualization
-- **Jupyter Notebook** — interactive analysis environment
-
-## 🔍 Analysis Workflow
-
-1. **Data Cleaning**
-   - Removed irrelevant/blank columns (`Status`, `unnamed1`)
-   - Handled missing values
-   - Corrected data types (e.g., `Amount` cast to integer)
-
-2. **Exploratory Data Analysis**
-   Analysis was broken down across key dimensions:
-   - **Gender** — purchase count and total spend by gender
-   - **Age** — spending patterns across age groups
-   - **State** — top 10 states by order volume and revenue
-   - **Marital Status** — spend comparison between married and unmarried customers
-   - **Cross-analysis** — combining dimensions (e.g., marital status × gender) to sharpen the customer profile
-   - **Occupation** — top spending professions
-   - **Product Category** — best-selling categories and top products
-
-## 💡 Key Insights
-
-| Dimension | Finding |
-|---|---|
-| Gender | **Women** account for the majority of purchases and show **higher spend per customer** than men |
-| Age | The **26–35** age group is the most active buying segment |
-| Location | **Uttar Pradesh, Maharashtra, and Karnataka** lead in both order volume and total revenue |
-| Marital Status | **Married customers**, especially Married women, generate more total revenue than unmarried customers |
-| Occupation | Buyers are concentrated in **IT Sector, Healthcare, and Aviation** |
-| Product Category | **Food, Clothing & Apparel, and Electronics & Gadgets** generate the most revenue |
-
-### 🎯 Recommendation
-The data points to a clear target customer: **Married women, aged 26–35, in Uttar Pradesh/Maharashtra/Karnataka, working in IT, Healthcare, or Aviation, shopping for Food, Clothing, and Electronics.** Concentrating marketing spend and inventory planning on this profile would improve ROI for future Diwali campaigns.
-
-## 🚀 Getting Started
-
-### Prerequisites
-```bash
-pip install pandas numpy matplotlib seaborn jupyter
-```
-
-### Run the analysis
-```bash
-git clone https://github.com/shiveshmukund/Python_Diwali_Sales_Analysis.git
-cd Python_Diwali_Sales_Analysis
-jupyter notebook Diwali_Sales_Analysis.ipynb
-```
+---
 
 ## 📁 Repository Structure
 
 ```
-├── Diwali_Sales_Data.csv          # Raw dataset
-├── Diwali_Sales_Analysis.ipynb    # Full EDA notebook (cleaning, visualization, insights)
-└── README.md                      # Project documentation
+diwali-sales-analysis/
+│
+├── Diwali_Sales_Data.csv          # Raw dataset (11,251 transactions)
+├── Diwali_Sales_Analysis.ipynb    # Full analysis: cleaning, EDA, visualizations
+└── README.md
 ```
 
-## 🙏 Acknowledgements
+---
 
-Dataset sourced for educational/portfolio purposes to practice EDA and data visualization techniques.
+## ▶️ How to Run
+
+```bash
+# Clone the repository
+git clone https://github.com/<your-username>/diwali-sales-analysis.git
+cd diwali-sales-analysis
+
+# Install dependencies
+pip install pandas numpy matplotlib seaborn jupyter
+
+# Launch the notebook
+jupyter notebook Diwali_Sales_Analysis.ipynb
+```
+
+---
 
 ## 📬 Connect With Me
+
+Feel free to reach out if you'd like to discuss this project or explore collaboration opportunities.
 
 - [LinkedIn](https://linkedin.com/in/shiveshmukund)   
 - [Portfolio](https://shiveshmukund.github.io/Portfolio_Website/)
 
 ---
 
-⭐ If you found this project useful, consider giving it a star!
+⭐ If you found this project useful or interesting, consider giving it a star!
