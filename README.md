@@ -128,14 +128,4 @@ jupyter notebook Diwali_Sales_Analysis.ipynb
 
 ---
 
-## 📬 Connect With Me
-
-Feel free to reach out if you'd like to discuss this project or explore collaboration opportunities.
-
-- **LinkedIn:** [add your link]
-- **Email:** [add your email]
-- **Portfolio:** [add your link]
-
----
-
 ⭐ If you found this project useful or interesting, consider giving it a star!
