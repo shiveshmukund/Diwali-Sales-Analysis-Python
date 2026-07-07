@@ -2,8 +2,6 @@
 
 **Exploratory data analysis of 11,000+ festive-season transactions to uncover who buys, what they buy, and where the revenue comes from.**
 
-**Tech stack:** Python · Pandas · NumPy · Matplotlib · Seaborn · Jupyter Notebook
-
 ---
 
 ## 📌 Overview
@@ -86,7 +84,7 @@ Segmented the cleaned data across five lenses to build a complete customer and p
 - **Prioritize female customers, especially aged 26–35**, in campaign targeting and personalized offers — they are both the most frequent and highest-spending segment.
 - **Concentrate inventory and logistics investment** in Uttar Pradesh, Maharashtra, and Karnataka, which together account for a disproportionate share of revenue.
 - **Stock up early on Food, Clothing & Apparel, and Electronics** ahead of the next festive season, since these three categories consistently outsell the rest.
-- **Design occupation-aware offers** (e.g. for IT, Healthcare, and Aviation professionals) who show higher purchasing power.
+- **Design occupation-aware offers** (e.g., for IT, Healthcare, and Aviation professionals) who show higher purchasing power.
 
 ---
 
